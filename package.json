@@ -1,0 +1,16 @@
+{
+  "name": "electron-edu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.4.10",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0"
+  }
+}
