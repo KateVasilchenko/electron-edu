@@ -4,13 +4,18 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "./node_modules/.bin/electron ."
+    "start": "gulp sass && ./node_modules/.bin/electron ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "directory-tree": "^1.1.1",
     "electron": "^1.4.10",
+    "electron-tree-view": "^1.1.0",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
-    "gulp-less": "^3.3.0"
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.0",
+    "gulp-sass": "^2.3.2"
   }
 }
