@@ -8,23 +8,16 @@
     <button id="party" class="very-sweet-looking">Open</button>
     <input id="business" type="file" style="display: none" webkitdirectory />
     <script>
-      const gulp = require('gulp');
-      const less = require('gulp-less');
+      const processLess = require('./app/modules/less');
 
       const input = document.getElementById('business');
       const button = document.getElementById('party');
-
-      function processSass(path) {
-        gulp.src(path + '/**/*.less')
-            .pipe(less())
-            .pipe(gulp.dest('./css'));
-      }
 
       button.addEventListener('click', () => input.click());
       input.addEventListener('change', e => {
         let fullPath = e.path[0].files[0].path;
         let folderName = e.path[0].files[0].name;
-        processSass(fullPath);
+        processLess(fullPath);
       });
     </script>
   </body>
