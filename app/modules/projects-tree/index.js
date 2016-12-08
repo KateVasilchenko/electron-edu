@@ -1,6 +1,7 @@
 const utils = require('../utils');
-const dirTree = require('directory-tree');
-const projectTree = require('../project-tree');
+// const dirTree = require('directory-tree');
+// const projectTree = require('../project-tree');
+const processLess = require('../less');
 
 const getProjectName = utils.getProjectName;
 const toggleClass = utils.toggleClass;
@@ -11,10 +12,11 @@ function addNewProject(event, projectContainer) {
   project.innerHTML = getProjectName(event);
   project.addEventListener('click', e => {
     toggleClass(e);
-    projectTree({
-       root: dirTree(event.path[0].files[0].path),
-       container: document.querySelector('.project-tree')
-     });
+    processLess(event.path[0].files[0].path);
+    // projectTree({
+    //    root: dirTree(event.path[0].files[0].path),
+    //    container: document.querySelector('.project-tree')
+    //  });
   });
   projectContainer.appendChild(project);
 }

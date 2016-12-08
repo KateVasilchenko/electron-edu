@@ -12,7 +12,8 @@
     <div class="panel projects">
       <h3 class="panel__title">Projects <i id="selectBtn" class="icon fa fa-plus-square"></i></h3>
       <!--<button id="selectBtn" class="btn btn-select">Open</button>-->
-      <input id="selectFile" type="file" class="hidden" webkitdirectory />
+      <!--<input id="selectFile" type="file" class="hidden" webkitdirectory />-->
+      <input id="selectFile" type="file" class="hidden" />
       <ul class="projects__list list"></ul>
     </div>
     <div class="panel files project-tree">
@@ -63,8 +64,8 @@
         <input id="selectOutput" type="file" class="hidden" webkitdirectory />
         <div class="actions-section__body">
               <span class="output-path">
-                <i class="icon fa fa-arrow-right"></i>
-                <span class="output-path__text">css/main.css</span>
+                <i id="selectOutputBtn" class="icon fa fa-arrow-right"></i>
+                <span class="output-path__text">Choose folder...</span>
               </span>
         </div>
       </div>
@@ -110,6 +111,15 @@
 <script>
   const addNewProject = require('./app/modules/projects-tree');
   addNewProject('selectBtn', 'selectFile', '.projects__list');
+
+  const outputInput = document.getElementById('selectOutput');
+  const outputPath = document.querySelector('.output-path__text');
+  const outputBtn = document.getElementById('selectOutputBtn');
+
+  outputBtn.addEventListener('click', () => outputInput.click());
+  outputInput.addEventListener('change', e => {
+    outputPath.innerHTML = e.path[0].files[0].path;
+  });
 
 //
 //  addProjectBtn.addEventListener('click', () => addProjectInput.click());

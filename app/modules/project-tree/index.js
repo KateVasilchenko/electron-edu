@@ -1,22 +1,22 @@
-const fs = require('fs');
-
-function renderDir() {
-
-}
-
-function renderFiles() {
-
-}
-
-function render (o) {
-  const data = o.root;
-  // if ()
-}
-
-module.exports = function(o) {
-  console.log(o.root);
-  render(o);
-};
+// const fs = require('fs');
+//
+// function renderDir() {
+//
+// }
+//
+// function renderFiles() {
+//
+// }
+//
+// function render (o) {
+//   const data = o.root;
+//   // if ()
+// }
+//
+// module.exports = function(o) {
+//   console.log(o.root);
+//   render(o);
+// };
 // const electron = require('electron')
 // const fs = require('fs')
 // const events = require('events')
