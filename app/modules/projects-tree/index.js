@@ -2,6 +2,7 @@ const utils = require('../utils');
 // const dirTree = require('directory-tree');
 // const projectTree = require('../project-tree');
 const processLess = require('../less');
+const processSass = require('../sass');
 
 const getProjectName = utils.getProjectName;
 const toggleClass = utils.toggleClass;
@@ -12,7 +13,15 @@ function addNewProject(event, projectContainer) {
   project.innerHTML = getProjectName(event);
   project.addEventListener('click', e => {
     toggleClass(e);
-    processLess(event.path[0].files[0].path);
+    const filePath =event.path[0].files[0].path;
+    const isSass = /\.scss$/.test(filePath);
+    if(isSass){
+      processSass(filePath)
+    }
+     else {
+       processLess(filePath);
+     }
+    // processLess(event.path[0].files[0].path);
     // projectTree({
     //    root: dirTree(event.path[0].files[0].path),
     //    container: document.querySelector('.project-tree')
