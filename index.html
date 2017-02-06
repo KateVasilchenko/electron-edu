@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Electron Application</title>
+  <link rel="stylesheet" href="app/assets/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="app/assets/css/styles.css">
+</head>
+<body>
+<div class="wrapper">
+  <div class="main">
+    <div class="panel projects">
+      <h3 class="panel__title">Projects <i id="selectBtn" class="icon fa fa-plus-square"></i></h3>
+      <!--<button id="selectBtn" class="btn btn-select">Open</button>-->
+      <!--<input id="selectFile" type="file" class="hidden" webkitdirectory />-->
+      <input id="selectFile" type="file" class="hidden" />
+      <ul class="projects__list list"></ul>
+    </div>
+    <div class="panel files project-tree">
+      <ul class="files-list">
+        <li class="files-list__item--has-child">
+          <label for="subfolder1">
+            <i class="icon fa fa-folder"></i>
+            <span class="label-text">Project 1</span>
+          </label>
+          <input type="checkbox" id="subfolder1" class="hidden files-list__checkbox" />
+          <ul class="files__list files-list--inner">
+            <li class="files-list__item--has-child">
+              <label for="subfolder2">
+                <i class="icon fa fa-folder"></i>
+                <span class="label-text">Project 1</span>
+              </label>
+              <input type="checkbox" id="subfolder2" class="hidden files-list__checkbox" />
+              <ul class="files__list files-list--inner">
+                <li class="files-list__item">
+                  <i class="icon fa fa-file"></i>
+                  <span class="label-text">File 1</span>
+                </li>
+                <li class="files-list__item">
+                  <i class="icon fa fa-file"></i>
+                  <span class="label-text">File 2</span>
+                </li>
+              </ul>
+            </li>
+            <li class="files-list__item">
+              <i class="icon fa fa-file"></i>
+              <span class="label-text">File 1</span>
+            </li>
+            <li class="files-list__item">
+              <i class="icon fa fa-file"></i>
+              <span class="label-text">File 2</span>
+            </li>
+          </ul>
+        </li>
+        <li class="files-list__item">
+          <i class="icon fa fa-file"></i>
+          <span class="label-text">File 1</span>
+        </li>
+      </ul>
+    </div>
+    <div class="panel actions">
+      <div class="actions-section">
+        <h3 class="actions-section__title">Output path</h3>
+        <input id="selectOutput" type="file" class="hidden" webkitdirectory />
+        <div class="actions-section__body">
+              <span class="output-path">
+                <i id="selectOutputBtn" class="icon fa fa-arrow-right"></i>
+                <span class="output-path__text">Choose folder...</span>
+              </span>
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <h3 class="actions-section__title">File options</h3>
+        <div class="actions-section__body">
+          <div class="file-type">
+            <span class="file-type-img"></span>
+          </div>
+          <ul class="file-options">
+            <li class="file-options__item">
+              <input type="checkbox" id="autocompile" class="hidden file-options__checkbox" checked />
+              <label for="autocompile">
+                <i class="fa fa-square-o icon--not-checked"></i>
+                <i class="fa fa-check-square-o icon--checked"></i>
+                <span class="file-text">Auto Compile</span>
+              </label>
+            </li>
+            <li class="file-options__item">
+              <input type="checkbox" id="minify" class="hidden file-options__checkbox" />
+              <label for="minify">
+                <i class="fa fa-square-o icon--not-checked"></i>
+                <i class="fa fa-check-square-o icon--checked"></i>
+                <span class="file-text">Minify</span>
+              </label>
+            </li>
+            <li class="file-options__item">
+              <input type="checkbox" id="sourceMaps" class="hidden file-options__checkbox" />
+              <label for="sourceMaps">
+                <i class="fa fa-square-o icon--not-checked"></i>
+                <i class="fa fa-check-square-o icon--checked"></i>
+                <span class="file-text">Source Maps</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>
+<script>
+  const addNewProject = require('./app/modules/projects-tree');
+  addNewProject('selectBtn', 'selectFile', '.projects__list');
+
+  const outputInput = document.getElementById('selectOutput');
+  const outputPath = document.querySelector('.output-path__text');
+  const outputBtn = document.getElementById('selectOutputBtn');
+
+  outputBtn.addEventListener('click', () => outputInput.click());
+  outputInput.addEventListener('change', e => {
+    outputPath.innerHTML = e.path[0].files[0].path;
+  });
+
+//
+//  addProjectBtn.addEventListener('click', () => addProjectInput.click());
+//  addProjectInput.addEventListener('change', e => {
+//    const projectName = e.path[0].files[0].name;
+//    const project = document.createElement('li');
+//    project.className = 'projects-list__item';
+//    project.innerHTML = projectName;
+//    projectsList.appendChild(project);
+//  });
+
+
+
+
+//  const processLess = require('./app/modules/less');
+//  const dirTree = require('directory-tree');
+//
+//  const input = document.getElementById('selectFile');
+//  const button = document.getElementById('selectBtn');
+//
+//  button.addEventListener('click', () => input.click());
+//  input.addEventListener('change', e => {
+//    let path = e.path[0].files[0].path;
+//  let name = e.path[0].files[0].name;
+//  const tree = require('electron-tree-view')({
+//    root: dirTree(path),
+//    container: document.querySelector('.container')
+//  });
+//  tree.on('selected', item => console.log(item));
+//  tree.on('deselected', item => console.log(item));
+//  processLess(path);
+//  });
+</script>
+</body>
+</html>

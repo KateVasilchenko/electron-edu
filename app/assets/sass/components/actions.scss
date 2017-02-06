@@ -1,0 +1,13 @@
+.actions {
+    border-left: 1px solid #151820;
+}
+.actions-section {
+    &__title {
+        padding: 10px 15px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #151820;
+    }
+    &__body {
+        padding: 10px 15px;
+    }
+}
