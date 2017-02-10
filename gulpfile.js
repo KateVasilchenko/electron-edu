@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-
 const electron = require('electron-connect').server.create();
 
 // gulp.task('serve', ['sass'], function() {
@@ -22,22 +21,25 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./app/assets/css'));
 });
 
-gulp.task('watch', function () {
-  gulp.watch('./app/assets/sass/index.scss', ['sass']);
-});
-
-gulp.task('default', ['serve']);
-
+// gulp.task('watch', function () {
+//   gulp.watch('./app/assets/sass/**/*.scss', ['sass']);
+// });
 
 gulp.task('serve', function () {
 
   // Start browser process
-  electron.start();
+  // electron.start();
 
   // Restart browser process
-  gulp.watch('main.js', electron.restart);
-  gulp.watch(['./app/assets/sass/**/*.scss','index.html'], ['sass']).on('change', electron.reload);
+  // gulp.watch('main.js', electron.restart);
+  gulp.watch('./app/assets/sass/**/*.scss', ['sass']).on('change', electron.reload);
+  // gulp.watch('./app/assets/sass/**/*.scss', electron.restart);
 
   // Reload renderer process
   // gulp.watch(['index.js', 'index.html'], electron.reload);
 });
+gulp.task('reload', function() {
+  return run('electron.restart').exec();
+});
+
+gulp.task('default', ['serve']);

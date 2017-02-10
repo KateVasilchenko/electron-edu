@@ -9,14 +9,17 @@
 <body>
 <div class="wrapper">
   <div class="main">
-    <div class="panel projects">
-      <h3 class="panel__title">Projects <i id="selectBtn" class="icon fa fa-plus-square"></i></h3>
-      <!--<button id="selectBtn" class="btn btn-select">Open</button>-->
-      <!--<input id="selectFile" type="file" class="hidden" webkitdirectory />-->
-      <input id="selectFile" type="file" class="hidden" />
-      <ul class="projects__list list"></ul>
+    <div class="projects">
+      <h3 class="projects__title">Projects <i id="selectBtn" class="icon fa fa-plus-square"></i></h3>
+      <div class="projects__body">
+        <!--<button id="selectBtn" class="btn btn-select">Open</button>-->
+        <!--<input id="selectFile" type="file" class="hidden" webkitdirectory />-->
+        <input id="selectFile" type="file" class="hidden" />
+        <ul class="projects__list list"></ul>
+      </div>
     </div>
-    <div class="panel files project-tree">
+    <div class="files project-tree">
+      <h3 class="files__title">Project tree</h3>
       <ul class="files-list">
         <li class="files-list__item--has-child">
           <label for="subfolder1">
@@ -58,7 +61,7 @@
         </li>
       </ul>
     </div>
-    <div class="panel actions">
+    <div class="actions">
       <div class="actions-section">
         <h3 class="actions-section__title">Output path</h3>
         <input id="selectOutput" type="file" class="hidden" webkitdirectory />
@@ -110,7 +113,6 @@
 </div>
 
 <script>
-
   const addNewProject = require('./app/modules/projects-tree');
   addNewProject('selectBtn', 'selectFile', '.projects__list');
 

@@ -1,18 +1,25 @@
 .projects {
+    @extend .panel;
     background: $left-bar-bg;
 }
-.projects-list {
-    &__item {
-        padding: 10px 15px;
-        &:hover {
-            cursor: pointer;
-        }
-        &.is-active {
-            background: $main-blue;
-        }
+.projects__title {
+    @extend .panel__title;
+    border-color: $main-bg;
+}
+.projects__body {
+    @extend .panel__body;
+}
+.projects-list__item {
+    padding: 10px 20px;
+    &:hover {
+        cursor: pointer;
+    }
+    &.is-active {
+        background: $main-blue;
     }
 }
 
 .projects__list {
     padding: 0;
+    // margin: 0 -20px;
 }

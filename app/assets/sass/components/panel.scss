@@ -1,7 +1,18 @@
-.panel {
-    &__title {
-        padding: 10px 15px;
-        text-transform: uppercase;
-        border-bottom: 1px solid #151820;
-    }
+.panel {    
+    display: flex;
+    flex-direction: column;
+}
+
+.panel__title {
+    flex: 0 0 auto;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #151820;
+}
+
+.panel__body {
+    flex: 1 1 auto;
+    padding: 20px;
 }

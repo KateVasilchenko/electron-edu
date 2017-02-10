@@ -1,20 +1,29 @@
 .files {
+    @extend .panel;
     // background: $left-bar-bg;
-    padding: 15px;
 }
-.files-list {
-    &__item {
-        padding: 5px;
-        display: flex;
-        align-items: center;
-        font-size: 14px;
+.files__title {
+    @extend .panel__title;
+}
+ul.files-list {
+    @extend .panel__body;
+    padding: 20px;
+    label {
+        padding: 5px 0;
     }
-    &--inner {
-        display: none;
+}
+ul.files-list--inner {
+    padding-left: 15px;
+    display: none;
     .files-list__checkbox:checked ~ & {
-            display: block;
-        }
+        display: block;
     }
+}
+.files-list__item {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
 }
 .file-options {
     padding: 0;
