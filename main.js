@@ -2,7 +2,7 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 // require('electron-connect').client.create();
-require('electron-reload')(__dirname);
+//require('electron-reload')(__dirname);
 
 let mainWindow;
 

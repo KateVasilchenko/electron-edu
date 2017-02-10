@@ -21,7 +21,9 @@ function addNewProject(event, projectContainer) {
     //  else {
     //    processLess(filePath);
     //  }
+    debugger;
     processLess(event.path[0].files[0].path);
+    console.log(event.path[0].files[0].path)
     projectTree({
        root: dirTree(event.path[0].files[0].path),
        container: document.querySelector('.project-tree')

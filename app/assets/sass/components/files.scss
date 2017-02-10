@@ -28,3 +28,14 @@ ul.files-list--inner {
 .file-options {
     padding: 0;
 }
+.file-options__item {
+    label {
+        padding: 0;
+        padding-left: 30px;
+        margin-bottom: 7px;
+        line-height: 20px;
+    }
+}
+.file-text {
+    vertical-align: middle;
+}

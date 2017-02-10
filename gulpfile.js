@@ -38,8 +38,5 @@ gulp.task('serve', function () {
   // Reload renderer process
   // gulp.watch(['index.js', 'index.html'], electron.reload);
 });
-gulp.task('reload', function() {
-  return run('electron.restart').exec();
-});
 
 gulp.task('default', ['serve']);
