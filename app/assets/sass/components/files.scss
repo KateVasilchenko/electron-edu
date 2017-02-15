@@ -1,13 +1,11 @@
 .files {
     @extend .panel;
-    // background: $left-bar-bg;
 }
 .files__title {
     @extend .panel__title;
 }
 ul.files-list {
     @extend .panel__body;
-    padding: 20px;
     label {
         padding: 5px 0;
     }

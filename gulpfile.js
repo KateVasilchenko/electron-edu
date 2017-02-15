@@ -3,27 +3,12 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const electron = require('electron-connect').server.create();
 
-// gulp.task('serve', ['sass'], function() {
-
-//   browserSync.init({
-//     server: {
-//       baseDir: "."
-//     }
-//   });
-
-//     gulp.watch('./app/assets/sass/**/*.scss', ['sass']).on('change', browserSync.reload);
-// });
-
 gulp.task('sass', function () {
   return gulp.src('./app/assets/sass/index.scss')
     .pipe(sass())
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('./app/assets/css'));
 });
-
-// gulp.task('watch', function () {
-//   gulp.watch('./app/assets/sass/**/*.scss', ['sass']);
-// });
 
 gulp.task('serve', function () {
 

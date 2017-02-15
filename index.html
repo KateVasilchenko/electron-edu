@@ -10,12 +10,13 @@
 <div class="wrapper">
   <div class="main">
     <div class="projects">
-      <h3 class="projects__title">Projects <i id="selectBtn" class="icon fa fa-plus-square"></i></h3>
+      <h3 class="projects__title">Projects</h3>
       <div class="projects__body">
         <!--<button id="selectBtn" class="btn btn-select">Open</button>-->
         <!--<input id="selectFile" type="file" class="hidden" webkitdirectory />-->
-        <input id="selectFile" type="file" class="hidden" />
+        <input id="selectFile" type="file" class="hidden" webkitdirectory directory multiple />
         <ul class="projects__list list"></ul>
+        <a href="#" id="selectBtn" class="projects__btn"><i class="fa fa-plus" aria-hidden="true"></i><span>Add project</span></a>
       </div>
     </div>
     <div class="files project-tree">
@@ -66,8 +67,9 @@
         <h3 class="actions-section__title">Output path</h3>
         <input id="selectOutput" type="file" class="hidden" webkitdirectory />
         <div class="actions-section__body">
-              <span class="output-path">
-                <i id="selectOutputBtn" class="icon fa fa-arrow-right"></i>
+              <span class="output-path"  id="selectOutputBtn">
+                <input id="selectOutput" type="file" class="hidden" webkitdirectory directory multiple />
+                <i class="icon fa fa-arrow-right"></i>
                 <span class="output-path__text">Choose folder...</span>
               </span>
         </div>
@@ -116,6 +118,7 @@
 
   outputBtn.addEventListener('click', () => outputInput.click());
   outputInput.addEventListener('change', e => {
+    // outputPath.innerHTML = e.path[0].files[0].name;
     outputPath.innerHTML = e.path[0].files[0].path;
   });
 
